@@ -1,0 +1,95 @@
+  <template>
+  <div class="container">
+    <lightning-card>
+<!-- Selector de opciones -->
+        <fieldset class="custom-slds-form-element" aria-label="solicitar asistencia">
+            <legend class="slds-form-element__legend slds-form-element__label" aria-label="texto componente" style="font-size:medium;">Opciones en caso de emergencia:</legend>
+            <div class="slds-form-element__control">
+<!-- Visual Picker - Solicitar Asistencia -->
+                <div class="slds-visual-picker slds-visual-picker_small">
+                    <input type="radio" id="visual-picker-91" value="visual-picker-91" name="solicitar asistencia" disabled={leftPickerDisabled} onclick={handleLeftPickerClick} aria-labelledby="visual-picker-91-label"/>
+                    <label for="visual-picker-91" id="visual-picker-91-label">
+                        <span class="slds-visual-picker__figure slds-visual-picker__icon slds-align_absolute-center">
+                                <span class="slds-icon_container">                                   
+                                    <svg class="slds-icon slds-icon-utility-anywhere_alert slds-icon_large slds-icon-text-default" aria-hidden="true">                                        
+                                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#anywhere_alert"></use>
+                                    </svg>                              
+                                </span>                                
+                        </span>
+                        <span class="slds-visual-picker__body">
+                            <span class="slds-text-title" style="font-weight: bold;">Solicitar Asistencia</span>
+                        </span>
+                    </label>                    
+                </div>
+ <!-- Visual Picker - Cancelar Solicitud -->
+                <div class="slds-visual-picker slds-visual-picker_small">
+                    <input type="radio" id="visual-picker-92" value="visual-picker-92" name="cancelar solicitud" disabled={rightPickerDisabled} onclick={handleRightPickerClick} aria-labelledby="visual-picker-92-label"/>
+                    <label for="visual-picker-92" id="visual-picker-92-label">
+                        <span class="slds-visual-picker__figure slds-visual-picker__icon slds-align_absolute-center">
+                                <span class="slds-icon_container">                                   
+                                    <svg class="slds-icon slds-icon-utility-clear slds-icon_large slds-icon-text-default" aria-hidden="true">
+                                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#clear"></use>
+                                      </svg>                               
+                                </span>                                
+                        </span>
+                        <span class="slds-visual-picker__body">
+                            <span class="slds-text-title" style="font-weight: bold;">Cancelar Solicitud</span>
+                        </span>
+                    </label>                    
+                </div>
+            </div>
+        </fieldset>
+<!--    Ring Loader     -->
+<template if:true={showLoader}>
+    <div class="loader-container">             
+        <div class="loader-wrapper">   
+        <div class="slds-progress-ring slds-progress-ring_warning">
+            <div class="slds-progress-ring__progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75" aria-label="progress ring">
+              <svg viewBox="-1 -1 2 2">
+                <path class="slds-progress-ring__path" id="slds-progress-ring-path-43" d="M 1 0 A 1 1 0 1 0 0.00 1.00 L 0 0"></path>
+              </svg>
+            </div>
+            <div class="slds-progress-ring__content">
+              <span class="slds-icon_container slds-icon-utility-warning" title="Warning">
+                <svg class="slds-icon" aria-hidden="true">
+                  <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#warning"></use>                          
+                </svg>
+                <span class="slds-assistive-text">Procesando solicitud</span>
+              </span>
+            </div>
+            <div class="custom-slds-progress-ring">                        
+              <svg viewBox="-1 -1 2 2">
+                <circle class="slds-progress-ring__path" id="slds-progress-ring-circle-43" cx="0" cy="0.7" r="0.2"></circle>
+              </svg>
+            </div>
+          </div>
+        </div>
+    </div>
+</template>
+<!--     Alerta     -->
+        <template if:true={showAlert}>
+            <div class="alert-container">
+                <div class="slds-notify slds-notify_alert slds-alert_error" role="alert" aria-label="Alerta">
+                        <span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small" title="alerta">
+                            <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#broadcast"></use>
+                            </svg>
+                        </span>                         
+                         <div class="alert-content">
+                            <h2>Su ubicación está siendo monitoreada.</h2>
+                            <p><a href="#">Más Información</a></p>
+                        </div>
+                        <div class="slds-notify__close">
+                            <button class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse" aria-label="Close Button" title="Close">
+                                <svg class="slds-button__icon" aria-hidden="true" aria-label="icono">
+                                    <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#close"></use>
+                                </svg>
+                                <span class="slds-assistive-text">Close</span>
+                            </button>
+                        </div>
+                </div>
+            </div>
+        </template>
+    </lightning-card>   
+    </div>
+</template>

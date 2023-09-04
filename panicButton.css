@@ -1,0 +1,70 @@
+:host {
+    display: flex;       
+    justify-content: center;
+    align-items: center;   
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: lightgray;
+    border-radius: var(--lwc-borderRadiusMedium, 0.25rem);
+}
+
+.custom-slds-form-element {
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+}
+/*Estilo para visualizar en Dispositivos moviles*/
+@media (max-width: 767px) {
+    .container{
+        font-size: 14px;
+    }
+    .slds-visual-picker{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center; 
+        /*display: block;*/
+       /* text-align: center;*/
+        /*margin: 0 auto;*/
+    }
+    .loader-container, .alert-container{
+        width: 80%;
+    }
+}
+/* Estilos del loader*/
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+    z-index: 9999 !important; /* Para asegurar se muestre sobre otros elementos*/
+}
+
+.loader-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.custom-slds-progress-ring {
+    animation: spin 2s linear infinite;
+}
